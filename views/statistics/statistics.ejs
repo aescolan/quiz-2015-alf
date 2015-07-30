@@ -1,0 +1,59 @@
+</p> <br>
+<table id="estadisticas">
+  <thead>
+    <caption>
+      <h4>Estadísticas de Quiz</h4>
+      <br/>
+    </caption>
+
+    <tr>
+      <th>
+        <span>Número</span>
+      </th>
+      <th>
+        <span>Tipo</span>
+      </th>
+    </tr>
+
+    <tr>
+      <td class="izquierda">
+          <%= statistics.quizes %>
+      </td>
+      <td>
+        <span>Total Preguntas</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="izquierda">
+          <%= statistics.comments %>
+      </td>
+      <td>
+        <span>Total Comentarios</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="izquierda">
+          <%= statistics.quizes - statistics.commentedQuizes %>
+      </td>
+      <td>
+        <span>Total sin comentarios</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="izquierda">
+          <%= statistics.commentedQuizes %>
+      </td>
+      <td>
+        <span>Total con comentarios</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="izquierda">
+          <%= statistics.commentsUnpublished %>
+      </td>
+      <td>
+        <span>Total sin publicar</span>
+      </td>
+    </tr>
+
+</table>
