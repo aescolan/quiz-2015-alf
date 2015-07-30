@@ -5,11 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     'Comment', {
       texto: {
         type: DataTypes.STRING,
-        validate: {
-          notEmpty: {
-            msg: " Falta -> Comentario"
-          }
-        }
+        validate: {notEmpty: {msg: " Falta -> Comentario"}}
       },
       publicado: {
         type: DataTypes.BOOLEAN,
@@ -27,9 +23,19 @@ module.exports = function(sequelize, DataTypes) {
             return count;
           })
         },
+        CountPublished: function() {
+          return this.count('QuizId', {
+            'where': {
+              'publicado': true
+            }
+          }).then('success', function(count) {
+            return count;
+          })
+        },
         CountCommentedQuizes: function() {
           return this.aggregate('QuizId', 'count', {
-            'distinct': true
+            //'distinct': true
+            'distinct': false
           }).then('success', function(count) {
             return count;
           })

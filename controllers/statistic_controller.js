@@ -5,11 +5,9 @@ var statistics = {
   comments: 0,
   commentsUnpublished: 0,
   commentedQuizes: 0,
-  commentsUncomented: 0
 };
 
 var errors = [];
-
 
 exports.calculate = function(req, res, next) {
   models.Quiz.count()
@@ -21,7 +19,8 @@ exports.calculate = function(req, res, next) {
     // comentarios
     .then(function(numComments) {
       statistics.comments = numComments;
-      return models.Comment.countUnpublished();
+      //return models.Comment.countUnpublished();
+      return models.Comment.countPublished();
     })
     // comentarios sin publicar
     .then(function(numUnpublished) {
@@ -31,7 +30,8 @@ exports.calculate = function(req, res, next) {
     // preguntas con comentario
     .then(function(numCommented) {
       statistics.commentedQuizes = numCommented;
-      return models.CountUnCommentedQuizes();
+      //return models.CountCommentedQuizes();
+      //return models.CountUnCommentedQuizes();
     })
     .catch(function(err) {
       errors.push(err);

@@ -1,59 +1,17 @@
-</p> <br>
-<table id="estadisticas">
-  <thead>
-    <caption>
-      <h4>Estadísticas de Quiz</h4>
-      <br/>
-    </caption>
 
-    <tr>
-      <th>
-        <span>Número</span>
-      </th>
-      <th>
-        <span>Tipo</span>
-      </th>
-    </tr>
-
-    <tr>
-      <td class="izquierda">
-          <%= statistics.quizes %>
-      </td>
-      <td>
-        <span>Total Preguntas</span>
-      </td>
-    </tr>
-    <tr>
-      <td class="izquierda">
-          <%= statistics.comments %>
-      </td>
-      <td>
-        <span>Total Comentarios</span>
-      </td>
-    </tr>
-    <tr>
-      <td class="izquierda">
-          <%= statistics.quizes - statistics.commentedQuizes %>
-      </td>
-      <td>
-        <span>Total sin comentarios</span>
-      </td>
-    </tr>
-    <tr>
-      <td class="izquierda">
-          <%= statistics.commentedQuizes %>
-      </td>
-      <td>
-        <span>Total con comentarios</span>
-      </td>
-    </tr>
-    <tr>
-      <td class="izquierda">
-          <%= statistics.commentsUnpublished %>
-      </td>
-      <td>
-        <span>Total sin publicar</span>
-      </td>
-    </tr>
-
+<table>
+  <tr>
+    <td>
+      <h3>Estadísticas</h3><br/>
+       <ul>
+         <li>Preguntas: <%= statistics.quizes %></li>
+         <li>Comentarios totales: <%= statistics.comments %></li>
+         <li>Comentarios no publicados: <%= statistics.commentsUnpublished %>
+           (<%= statistics.comments?(statistics.commentsUnpublished * 100 / statistics.comments).toFixed(2)+'%':'100%' %>)</li>
+         <li>Media de comentarios por pregunta: <%= statistics.quizes?(statistics.comments / statistics.quizes).toFixed(2):0 %></li>
+         <li>Preguntas sin comentarios: <%= statistics.quizes - statistics.commentedQuizes %></li>
+         <li>Preguntas con comentarios: <%= statistics.commentedQuizes %></li>
+        </ul>
+    </td>
+  </tr>
 </table>

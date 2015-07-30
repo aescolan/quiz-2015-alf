@@ -41,6 +41,9 @@ Quiz.hasMany(Comment);
 exports.Quiz = Quiz;       //exportar definición de tabla Quiz
 exports.Comment = Comment; // exportar definición tabla Comment
 
+//console.log(Quiz);
+//console.log(Comment);
+
 // sequelize.sync() inicializa tabla de preguntas en DB
 sequelize.sync().then(function() {
   // then(..) ejecuta el manejador una vez creada la tabla
@@ -62,7 +65,7 @@ sequelize.sync().then(function() {
         tema: 'humanidades'
       });
       Quiz.create({
-          pregunta: 'De quién es la teoría de la relatividad',
+          pregunta: 'Creador la teoría de la relatividad',
           respuesta: 'Albert Einstein',
           tema: 'ciencia'
         })
